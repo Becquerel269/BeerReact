@@ -8,7 +8,7 @@ import { containerStyle, center, options } from './settings';
 // Components
 import CurrentLocation from './components/CurrentLocation';
 // Image
-import beerIcon from './images/beer.svg';
+import beerIcon from './images/school.svg';
 // Styles
 import { Wrapper, LoadingView } from './App.styles';
 
@@ -77,7 +77,14 @@ const App: React.FC = () => {
     setSelectedMarker({} as MarkerType);
   };
 
-  const onMarkerClick = (marker: MarkerType) => setSelectedMarker(marker);
+  const onMarkerClick = (marker: MarkerType) => {
+    schoolDataForMarker(marker);
+    setSelectedMarker(marker);
+  };
+
+  const schoolDataForMarker = (marker: MarkerType) => {
+    console.log("rob2");
+  };
 
   if (!isLoaded) return <div>Map Loading ...</div>;
 
@@ -111,6 +118,7 @@ const App: React.FC = () => {
           <InfoWindow position={selectedMarker.location} onCloseClick={() => setSelectedMarker({} as MarkerType)}>
             <div>
               <h3>{selectedMarker.name}</h3>
+              {console.log("rob")}
               {isLoadingMarkerWeather ? (
                 <p>Loading Weather ...</p>
               ) : (

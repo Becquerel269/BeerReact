@@ -2,10 +2,9 @@
 import { MarkerType, WeatherType } from './App';
 
 const PLACE_RADIUS = 2500; // 2500 meters
-const TYPE = 'bar';
+const TYPE = 'school';
 
 export const fetchNearbyPlaces = async (lat: number, lng: number): Promise<MarkerType[]> => {
-  console.log("process.env.REACT_APP_API_KEY", process.env.REACT_APP_API_KEY);
   const response = await fetch(
     `https://trueway-places.p.rapidapi.com/FindPlacesNearby?location=${lat}%2C${lng}&language=en&radius=${PLACE_RADIUS}&type=${TYPE}`,
     {
